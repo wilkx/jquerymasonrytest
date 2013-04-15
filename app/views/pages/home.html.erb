@@ -1,11 +1,18 @@
-<div class="hero-unit">
-	<h1>Welcome!</h1>
+<% if user_signed_in? %>
+	<h1>You are now logged in!</h1>
 	<p>
-		You've found the home page for Jordan's
-		<%= link_to "Reddit", "http://www.reddit.com" %> Custom</a>
-		application.
+	<%= link_to "Let's do this!", "#", class:"btn btn-primary btn-large" %>
 	</p>
-	<p>
-		<%= link_to "TEST RUN!", "#", class:"btn btn-primary btn-large" %>
-	</p>
-</div>
+<% else %>
+	<div class="hero-unit">
+		<h1>Welcome!</h1>
+		<p>
+			You've found the home page for Jordan's
+			<%= link_to "Reddit", "http://www.reddit.com" %> Custom</a>
+			application.
+		</p>
+		<p>
+			<%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-primary btn-large" %>
+		</p>
+	</div>
+<% end %>
