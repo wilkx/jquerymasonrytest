@@ -5,7 +5,7 @@ before_filter :authenticate_user!, except: [:index]
   # GET /pins.json
   def index
     #current_user.pins.all
-    @pins = Pin.all
+    @pins = Pin.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
